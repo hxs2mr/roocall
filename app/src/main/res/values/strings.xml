@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">宿舍管理系统</string>
+    <string name="login_account">账号</string>
+    <string name="login_password">密码</string>
+    <string name="login_login">登录</string>
+    <string name="company_name">贵州冠宇科技有限公司</string>
+    <string name="voice">语音通话</string>
+    <string name="title_main">通知通告</string>
+    <string name="release_notice">+发布通知</string>
+</resources>
