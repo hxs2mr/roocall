@@ -9,6 +9,7 @@ import com.gykj.mvvmlibrary.base.BaseViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.mvvmlibrary.entity.BaseEntity;
+import com.gykj.mvvmlibrary.utils.RxUtils;
 import com.gykj.mvvmlibrary.utils.ToastUtils;
 import com.gykj.rollcall.ui.index.MainActivity;
 import com.gykj.rollcall.entity.TokenEntity;
@@ -60,6 +61,7 @@ public class LoginViewModel extends BaseViewModel {
         }
         showDialog("努力加载中...");
         Disposable subscribe = RollCallApi.getInstance().login(userName.get(), password.get())
+                .compose(RxUtils.bindToLifecycle(getLifecycleProvider()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(AndroidSchedulers.mainThread())

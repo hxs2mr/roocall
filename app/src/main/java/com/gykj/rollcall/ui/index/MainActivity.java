@@ -4,6 +4,7 @@ package com.gykj.rollcall.ui.index;
 import android.arch.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.gykj.mvvmlibrary.base.BaseActivity;
 
@@ -30,4 +31,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         return ViewModelProviders.of(this).get(MainViewModel.class);
     }
 
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
+    }
 }

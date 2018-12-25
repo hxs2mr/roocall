@@ -61,6 +61,10 @@ ext {
             "MVVMHabit"                            : "com.github.goldze:MVVMHabit:3.0.6",
             //autoSize
             "autosize"                             : "me.jessyan:autosize:1.1.1",
+            //refreshLayout
+            "SmartRefreshLayout"                   : "com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1",
+            "SmartRefreshHeader"                   : "com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1",
+
     ]
 }
 
