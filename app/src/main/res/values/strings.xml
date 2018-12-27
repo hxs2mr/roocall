@@ -20,4 +20,7 @@
     <string name="titie_door">门禁考勤</string>
     <string name="titie_analyse">点名统计分析</string>
     <string name="titie_setting">设置</string>
+    <string name="modify_data">资料修改</string>
+    <string name="modify_password">密码修改</string>
+    <string name="logout">退出登录</string>
 </resources>

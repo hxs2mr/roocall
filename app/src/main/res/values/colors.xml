@@ -13,5 +13,9 @@
     <color name="color_808080">#808080</color>
     <color name="color_c8c8c8">#c8c8c8</color>
     <color name="color_515151">#515151</color>
+    <color name="color_42d0da">#42d0da</color>
+    <color name="color_cc42d0da">#cc42d0da</color>
+    <color name="color_33ffffff">#33ffffff</color>
+    <color name="color_55ffffff">#55ffffff</color>
 
 </resources>

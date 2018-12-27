@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import com.gykj.mvvmlibrary.base.BaseViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
+import com.gykj.rollcall.ui.setting.ConverseActivity;
 
 /**
  * desc   : 主界面ViewModel
@@ -33,7 +34,7 @@ public class MainViewModel extends BaseViewModel {
     public BindingCommand voiceOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-
+            startActivity(ConverseActivity.class);
         }
     });
 

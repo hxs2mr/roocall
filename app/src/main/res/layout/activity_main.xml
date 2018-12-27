@@ -309,7 +309,7 @@
 
                 <ImageView
                     style="@style/lay_divide_line_e5e5e5_horizontal"
-                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginLeft="20dp"/>
 
             </RelativeLayout>
