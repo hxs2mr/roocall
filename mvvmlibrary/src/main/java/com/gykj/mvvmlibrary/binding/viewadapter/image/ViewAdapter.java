@@ -26,5 +26,10 @@ public final class ViewAdapter {
                     .into(imageView);
         }
     }
+
+    @BindingAdapter(value = {"resId"}, requireAll = false)
+    public static void setImageResId(ImageView imageView, int resId) {
+        imageView.setImageResource(resId);
+    }
 }
 

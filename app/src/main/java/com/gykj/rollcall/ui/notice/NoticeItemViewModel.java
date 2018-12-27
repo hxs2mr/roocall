@@ -1,12 +1,8 @@
-package com.gykj.rollcall.ui.index;
+package com.gykj.rollcall.ui.notice;
 
-import android.app.Application;
 import android.databinding.ObservableField;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 
-import com.gykj.mvvmlibrary.base.BaseViewModel;
 import com.gykj.mvvmlibrary.base.ItemViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
@@ -20,11 +16,11 @@ import com.gykj.rollcall.entity.MainEntity;
  * date   : 2018/12/259:52
  * version: 1.0
  */
-public class MainItemViewModel extends ItemViewModel<MainViewModel> {
+public class NoticeItemViewModel extends ItemViewModel<NoticeViewModel> {
 
     public ObservableField<MainEntity> entity = new ObservableField<>();
 
-    public MainItemViewModel(@NonNull MainViewModel viewModel, MainEntity entity) {
+    public NoticeItemViewModel(@NonNull NoticeViewModel viewModel, MainEntity entity) {
         super(viewModel);
         this.entity.set(entity);
     }

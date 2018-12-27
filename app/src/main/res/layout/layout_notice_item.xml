@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gykj.rollcall.ui.index.MainItemViewModel"/>
+            type="com.gykj.rollcall.ui.notice.NoticeItemViewModel"/>
     </data>
 
     <LinearLayout

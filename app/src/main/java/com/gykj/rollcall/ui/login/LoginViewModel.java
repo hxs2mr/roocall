@@ -11,9 +11,9 @@ import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.mvvmlibrary.entity.BaseEntity;
 import com.gykj.mvvmlibrary.utils.RxUtils;
 import com.gykj.mvvmlibrary.utils.ToastUtils;
-import com.gykj.rollcall.ui.index.MainActivity;
 import com.gykj.rollcall.entity.TokenEntity;
 import com.gykj.rollcall.model.api.RollCallApi;
+import com.gykj.rollcall.ui.index.MainActivity;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

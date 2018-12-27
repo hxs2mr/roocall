@@ -128,9 +128,9 @@ public class RollCallClient {
      * execute your customer API
      * For example:
      * MyApiService service =
-     * RetrofitClient.getInstance(MainActivity.this).create(MyApiService.class);
+     * RetrofitClient.getInstance(NoticeActivity.this).create(MyApiService.class);
      * <p>
-     * RetrofitClient.getInstance(MainActivity.this)
+     * RetrofitClient.getInstance(NoticeActivity.this)
      * .execute(service.lgon("name", "password"), subscriber)
      * * @param subscriber
      */

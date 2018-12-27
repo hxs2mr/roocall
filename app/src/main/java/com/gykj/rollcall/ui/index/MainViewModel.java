@@ -1,74 +1,124 @@
 package com.gykj.rollcall.ui.index;
 
 import android.app.Application;
-import android.databinding.Observable;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableField;
-import android.databinding.ObservableList;
+import android.databinding.ObservableBoolean;
+import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
 
 import com.gykj.mvvmlibrary.base.BaseViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
-import com.gykj.mvvmlibrary.utils.KLog;
-import com.gykj.mvvmlibrary.utils.Utils;
-import com.gykj.rollcall.R;
-import com.gykj.rollcall.entity.MainEntity;
-import com.gykj.rollcall.BR;
-import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
-import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 /**
  * desc   : 主界面ViewModel
  * author : josh.lu
  * e-mail : 1113799552@qq.com
- * date   : 2018/12/2416:02
+ * date   : 2018/12/2710:20
  * version: 1.0
  */
 public class MainViewModel extends BaseViewModel {
 
+    //选中的位置
+    public int index = 0;
 
-    //menu菜单绑定
+    //菜单按钮的点击事件
     public BindingCommand menuOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            KLog.d("lanzhu","menu菜单绑定");
+            uc.showDrawer.set(!uc.showDrawer.get());
         }
     });
 
-    //通话点击绑定
+    //语音按钮的点击事件
     public BindingCommand voiceOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            KLog.d("lanzhu","通话点击绑定");
+
         }
     });
+
+    //通知通告按钮的点击事件
+    public BindingCommand noticeOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 0;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //人员点名按钮的点击事件
+    public BindingCommand callOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 1;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //物品借用按钮的点击事件
+    public BindingCommand borrowOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 2;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //报损按钮的点击事件
+    public BindingCommand lossOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 3;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //门禁考勤按钮的点击事件
+    public BindingCommand doorOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 4;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //点名统计分析按钮的点击事件
+    public BindingCommand analyseOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 5;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //设置按钮的点击事件
+    public BindingCommand settingOnClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            index = 6;
+            uc.clickPosition.set(!uc.clickPosition.get());
+        }
+    });
+
+
+    //封装一个界面发生改变的观察者
+    public UIChangeObservable uc = new UIChangeObservable();
+
+    public class UIChangeObservable {
+        //Drawer显示
+        public ObservableBoolean showDrawer = new ObservableBoolean(false);
+
+        public ObservableBoolean clickPosition = new ObservableBoolean(false);
+    }
+
 
     public MainViewModel(@NonNull Application application) {
         super(application);
     }
-
-    //给RecyclerView添加ObservableList
-    public ObservableList<MainItemViewModel> observableList = new ObservableArrayList<>();
-    //给RecyclerView添加ItemBinding
-    public ItemBinding<MainItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.layout_main_item);
-    //RecyclerView多布局写法
-    //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法
-    public final BindingRecyclerViewAdapter<MainItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
-
-    /**
-     * 请求网络
-     */
-    public void requestNetwork(){
-        for(int i = 0;i<20;i++){
-            MainEntity entity = new MainEntity();
-            entity.setTitle("标题"+i);
-            entity.setContent("内容"+i);
-            entity.setDate("2018-12-25 10:25:26");
-            MainItemViewModel itemViewModel = new MainItemViewModel(this, entity);
-            observableList.add(itemViewModel);
-        }
-    }
-
 }
