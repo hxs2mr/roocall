@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.gykj.mvvmlibrary.base.BaseFragment;
 import com.gykj.rollcall.BR;
 import com.gykj.rollcall.R;
+import com.gykj.rollcall.databinding.FragmentCallBinding;
 import com.gykj.rollcall.databinding.FragmentNoticeBinding;
 import com.gykj.rollcall.ui.notice.NoticeViewModel;
 
@@ -18,7 +19,7 @@ import com.gykj.rollcall.ui.notice.NoticeViewModel;
  * date   : 2018/12/2711:23
  * version: 1.0
  */
-public class CallFragment extends BaseFragment<FragmentNoticeBinding,CallViewModel> {
+public class CallFragment extends BaseFragment<FragmentCallBinding,CallViewModel> {
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.fragment_call;
@@ -27,5 +28,10 @@ public class CallFragment extends BaseFragment<FragmentNoticeBinding,CallViewMod
     @Override
     public int initVariableId() {
         return BR.viewModel;
+    }
+
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
     }
 }

@@ -19,6 +19,40 @@
         android:gravity="center_horizontal">
 
 
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="@string/release_call"
+            android:background="@drawable/icon_release_btn_bg"
+            android:textColor="@color/color_ffffff"
+            binding:onClickCommand="@{viewModel.releaseOnClickCommand}"/>
+
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/color_e5e5e5"
+            android:textSize="10sp"
+            android:textColor="@color/color_808080"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:text="@string/call_rule_list"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:adapter="@{viewModel.adapter}"
+            binding:items="@{viewModel.observableList}"/>
+
+
     </LinearLayout>
 
 </layout>

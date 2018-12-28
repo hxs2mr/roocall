@@ -27,21 +27,6 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 public class NoticeViewModel extends BaseViewModel {
 
 
-    //封装一个界面发生改变的观察者
-    public UIChangeObservable uc = new UIChangeObservable();
-
-    public class UIChangeObservable {
-        //显示Menu菜单栏
-        public ObservableBoolean showPopWindows = new ObservableBoolean(false);
-    }
-
-    //menu菜单绑定
-    public BindingCommand menuOnClickCommand = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            uc.showPopWindows.set(!uc.showPopWindows.get());
-        }
-    });
 
     //发布通知点击绑定
     public BindingCommand releaseOnClickCommand = new BindingCommand(new BindingAction() {
@@ -51,13 +36,6 @@ public class NoticeViewModel extends BaseViewModel {
         }
     });
 
-    //通话点击绑定
-    public BindingCommand voiceOnClickCommand = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            KLog.d("lanzhu","通话点击绑定");
-        }
-    });
 
     public NoticeViewModel(@NonNull Application application) {
         super(application);
