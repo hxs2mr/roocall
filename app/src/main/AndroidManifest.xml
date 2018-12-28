@@ -37,7 +37,8 @@
 
         <activity android:name=".ui.index.MainActivity" />
         <activity android:name=".ui.notice.ReleaseActivity" />
-        <activity android:name=".ui.setting.ConverseActivity"></activity>
+        <activity android:name=".ui.setting.ConverseActivity"/>
+        <activity android:name=".ui.call.ReleaseCallActivity"/>
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@ public class CallViewModel extends BaseViewModel {
     public BindingCommand releaseOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-
+            startActivity(ReleaseCallActivity.class);
         }
     });
 
