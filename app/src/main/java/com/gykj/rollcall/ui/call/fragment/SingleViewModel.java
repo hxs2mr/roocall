@@ -6,7 +6,6 @@ import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
 import com.gykj.mvvmlibrary.base.BaseViewModel;
-import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.mvvmlibrary.binding.command.BindingConsumer;
 import com.gykj.rollcall.R;
@@ -31,7 +30,7 @@ public class SingleViewModel extends BaseViewModel {
     //给RecyclerView添加ObservableList
     public ObservableList<SingleItemViewModel> observableList = new ObservableArrayList<>();
     //给RecyclerView添加ItemBinding
-    public ItemBinding<SingleItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.layout_room_item);
+    public ItemBinding<SingleItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.layout_single_room_item);
     //RecyclerView多布局写法
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法
     public final BindingRecyclerViewAdapter<SingleItemViewModel> adapter = new BindingRecyclerViewAdapter<>();

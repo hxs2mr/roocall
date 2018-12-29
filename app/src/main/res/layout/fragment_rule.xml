@@ -85,10 +85,142 @@
 
         </RelativeLayout>
 
+
+
         <ImageView
             style="@style/lay_divide_line_e5e5e5_horizontal"
             android:layout_height="10dp"
             android:layout_marginTop="20dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginRight="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="@string/call_week"
+                android:textSize="12sp"
+                android:textColor="@color/color_515151"
+                android:layout_centerVertical="true"
+                android:gravity="end"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_toLeftOf="@+id/rule_week_total_tv"
+                android:layout_marginRight="6dp"
+                binding:onCheckedChangedCommand="@{viewModel.onWeekCheckedChangeCommand}"/>
+
+
+            <TextView
+                android:id="@+id/rule_week_total_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:textColor="@color/color_515151"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/total_select"/>
+
+
+        </RelativeLayout>
+
+
+        <ImageView
+            style="@style/lay_divide_line_e5e5e5_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="44dp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:layoutManager="android.support.v7.widget.GridLayoutManager"
+            binding:spanCount="4"
+            binding:itemBinding="@{viewModel.weekItemBinding}"
+            binding:adapter="@{viewModel.weekAdapter}"
+            binding:items="@{viewModel.weekObservableList}"/>
+
+
+
+
+        <ImageView
+            style="@style/lay_divide_line_e5e5e5_horizontal"
+            android:layout_height="10dp"
+            android:layout_marginTop="20dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginRight="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="@string/call_range"
+                android:textSize="12sp"
+                android:textColor="@color/color_515151"
+                android:layout_centerVertical="true"
+                android:gravity="end"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_toLeftOf="@+id/rule_total_tv"
+                android:layout_marginRight="6dp"
+                binding:onCheckedChangedCommand="@{viewModel.onCheckedChangeCommand}"/>
+
+
+            <TextView
+                android:id="@+id/rule_total_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:textColor="@color/color_515151"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/total_select"/>
+
+
+        </RelativeLayout>
+
+
+        <ImageView
+            style="@style/lay_divide_line_e5e5e5_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="44dp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:layoutManager="android.support.v7.widget.GridLayoutManager"
+            binding:spanCount="4"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:adapter="@{viewModel.adapter}"
+            binding:items="@{viewModel.observableList}"/>
+
+
 
 
     </LinearLayout>

@@ -27,4 +27,9 @@ public class RuleFragment extends BaseFragment<FragmentRuleBinding,RuleViewModel
     public int initVariableId() {
         return BR.viewModel;
     }
+
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
+    }
 }
