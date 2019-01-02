@@ -1,5 +1,7 @@
 package com.gykj.rollcall.entity;
 
+import java.io.Serializable;
+
 /**
  * desc   : 报损实体类
  * author : josh.lu
@@ -7,13 +9,17 @@ package com.gykj.rollcall.entity;
  * date   : 2019/1/210:02
  * version: 1.0
  */
-public class LossEntity {
+public class LossEntity implements Serializable {
 
     private String avater;
     private String people;
     private String items;
     private String date;
     private int type;
+    private String room;
+    private String deal_date;
+    private String detail;
+    private String model;
 
 
     public String getAvater() {
@@ -55,5 +61,38 @@ public class LossEntity {
     public void setType(int type) {
         this.type = type;
     }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getDeal_date() {
+        return deal_date;
+    }
+
+    public void setDeal_date(String deal_date) {
+        this.deal_date = deal_date;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
 
 }

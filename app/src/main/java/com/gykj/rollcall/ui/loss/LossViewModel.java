@@ -49,6 +49,10 @@ public class LossViewModel extends BaseViewModel {
             entity.setItems("水龙头"+i);
             entity.setDate("2018-12-25 10:25:26");
             entity.setType(i%2);
+            entity.setDeal_date("2019-1-2 10:25:26");
+            entity.setDetail("水管漏水");
+            entity.setRoom(String.valueOf(100+i));
+            entity.setModel("DH1001"+i);
             LossItemVeiwModel itemViewModel = new LossItemVeiwModel(this, entity);
             observableList.add(itemViewModel);
         }

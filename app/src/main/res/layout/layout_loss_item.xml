@@ -95,7 +95,8 @@
                     android:src="@mipmap/icon_scan"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:scaleType="centerInside"/>
+                    android:scaleType="centerInside"
+                    binding:onClickCommand="@{viewModel.scanOnClickCommand}"/>
 
 
             </RelativeLayout>
