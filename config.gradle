@@ -64,6 +64,8 @@ ext {
             //refreshLayout
             "SmartRefreshLayout"                   : "com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1",
             "SmartRefreshHeader"                   : "com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1",
+            //circleimageview
+            circleimageview                        : "de.hdodenhof:circleimageview:2.2.0",
 
     ]
 }

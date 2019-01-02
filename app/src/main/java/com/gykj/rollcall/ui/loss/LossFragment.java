@@ -28,4 +28,9 @@ public class LossFragment extends BaseFragment<FragmentNoticeBinding,LossViewMod
     public int initVariableId() {
         return BR.viewModel;
     }
+
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
+    }
 }

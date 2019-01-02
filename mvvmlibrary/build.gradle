@@ -69,4 +69,6 @@ dependencies {
     //refreshLayout
     api rootProject.ext.dependencies["SmartRefreshLayout"]
     api rootProject.ext.dependencies["SmartRefreshHeader"]
+    //circleimageview
+    api rootProject.ext.dependencies["circleimageview"]
 }
