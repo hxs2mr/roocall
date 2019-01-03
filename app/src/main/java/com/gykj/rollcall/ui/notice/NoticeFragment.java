@@ -1,11 +1,13 @@
 package com.gykj.rollcall.ui.notice;
 
+import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.gykj.mvvmlibrary.base.BaseFragment;
+import com.gykj.mvvmlibrary.entity.Config;
 import com.gykj.rollcall.BR;
 import com.gykj.rollcall.R;
 import com.gykj.rollcall.databinding.FragmentNoticeBinding;
@@ -31,5 +33,11 @@ public class NoticeFragment extends BaseFragment<FragmentNoticeBinding,NoticeVie
     @Override
     public void initData() {
         viewModel.requestNetwork();
+    }
+
+
+    @Override
+    public void initViewObservable() {
+
     }
 }

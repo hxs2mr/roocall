@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/color_ffffff">
+        android:background="@color/color_ffffff"
+        binding:onClickCommand="@{viewModel.scanClick}">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_6e6e6e"
             android:textSize="11sp"
-            android:text="@{viewModel.entity.content}"
+            android:text="@{viewModel.entity.people}"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="12dp"/>
 

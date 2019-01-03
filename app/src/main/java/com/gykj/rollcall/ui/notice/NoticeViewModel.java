@@ -49,6 +49,15 @@ public class NoticeViewModel extends BaseViewModel {
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法
     public final BindingRecyclerViewAdapter<NoticeItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
 
+
+    //封装一个界面发生改变的观察者
+    public UIChangeObservable uc = new UIChangeObservable();
+
+    public class UIChangeObservable {
+        //item点击查看详情
+        public ObservableBoolean itemClick = new ObservableBoolean(false);
+
+    }
     /**
      * 请求网络
      */
@@ -56,7 +65,8 @@ public class NoticeViewModel extends BaseViewModel {
         for(int i = 0;i<20;i++){
             MainEntity entity = new MainEntity();
             entity.setTitle("标题"+i);
-            entity.setContent("内容"+i);
+            entity.setContent("内容敖德萨旧时代u是对啊手段十大军事打击啊啊实打实接电话后代u和啊是大打卡机擦拭");
+            entity.setPeople("宿舍管理员"+i);
             entity.setDate("2018-12-25 10:25:26");
             NoticeItemViewModel itemViewModel = new NoticeItemViewModel(this, entity);
             observableList.add(itemViewModel);

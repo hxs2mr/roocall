@@ -10,4 +10,5 @@ package com.gykj.mvvmlibrary.entity;
 public class Config {
 
     public static final String LOSS_DETAIL = "LOSS_DETAIL";
+    public static final String NOTICE_DETAIL = "NOTICE_DETAIL";
 }

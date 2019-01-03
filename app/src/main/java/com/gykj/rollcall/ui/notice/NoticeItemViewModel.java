@@ -1,13 +1,17 @@
 package com.gykj.rollcall.ui.notice;
 
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.gykj.mvvmlibrary.base.ItemViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
+import com.gykj.mvvmlibrary.entity.Config;
 import com.gykj.mvvmlibrary.utils.KLog;
 import com.gykj.rollcall.entity.MainEntity;
+import com.gykj.rollcall.ui.index.MainViewModel;
 
 /**
  * desc   : 主界面ItemViewModel
@@ -38,6 +42,18 @@ public class NoticeItemViewModel extends ItemViewModel<NoticeViewModel> {
         @Override
         public void call() {
             KLog.d("lanzhu","deleteClick");
+
         }
     });
+
+    //条目的查看事件
+    public BindingCommand scanClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(Config.NOTICE_DETAIL,entity.get());
+            viewModel.startActivity(NoticeDetailActivity.class,bundle);
+        }
+    });
+
 }
