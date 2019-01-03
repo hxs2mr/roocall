@@ -50,4 +50,5 @@
     <string name="loss_detail">报损说明：</string>
     <string name="loss_date">报损时间：</string>
     <string name="loss_deal_date">处理时间：</string>
+    <string name="title_notice_detail">通知详情</string>
 </resources>

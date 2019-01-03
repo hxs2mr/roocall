@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".app.RollCallApplication"
@@ -20,6 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.notice.NoticeDetailActivity"></activity>
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +41,7 @@
         <activity android:name=".ui.notice.ReleaseActivity" />
         <activity android:name=".ui.setting.ConverseActivity" />
         <activity android:name=".ui.call.ReleaseCallActivity" />
-        <activity android:name=".ui.loss.LossDetailActivity"></activity>
+        <activity android:name=".ui.loss.LossDetailActivity" />
     </application>
 
 </manifest>
