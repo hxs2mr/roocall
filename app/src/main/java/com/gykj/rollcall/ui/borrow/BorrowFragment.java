@@ -28,4 +28,9 @@ public class BorrowFragment extends BaseFragment<FragmentNoticeBinding,BorrowVie
     public int initVariableId() {
         return BR.viewModel;
     }
+
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
+    }
 }

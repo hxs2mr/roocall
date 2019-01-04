@@ -51,4 +51,13 @@
     <string name="loss_date">报损时间：</string>
     <string name="loss_deal_date">处理时间：</string>
     <string name="title_notice_detail">通知详情</string>
+    <string name="please_input_name_or_number">请输入姓名或学号</string>
+    <string name="search">查询</string>
+    <string name="borrow_register">借用登记</string>
+    <string name="already_return">已归还</string>
+    <string name="no_return">未归还</string>
+    <string name="reduce">-</string>
+    <string name="item_return">归还</string>
+    <string name="modify">修改</string>
+    <string name="delete">删除</string>
 </resources>
