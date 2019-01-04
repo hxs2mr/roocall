@@ -4,9 +4,14 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 
 import com.gykj.mvvmlibrary.base.BaseActivity;
+import com.gykj.mvvmlibrary.entity.CityRealm;
 import com.gykj.rollcall.R;
 import com.gykj.rollcall.databinding.ActivityLoginBinding;
 import com.gykj.rollcall.BR;
+import com.gykj.rollcall.utils.ParseXmlUtils;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * desc   : 登录界面
@@ -29,5 +34,19 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public LoginViewModel initViewModel() {
         return ViewModelProviders.of(this).get(LoginViewModel.class);
+    }
+
+    @Override
+    public void initData() {
+        RealmResults<CityRealm> all = Realm.getDefaultInstance().where(CityRealm.class).findAll();
+        if(null == all || all.size() == 0){
+            try {
+                ParseXmlUtils.parseXml(getAssets().open("city.xml"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 }
