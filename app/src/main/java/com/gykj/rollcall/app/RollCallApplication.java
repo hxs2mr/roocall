@@ -34,9 +34,8 @@ public class RollCallApplication extends BaseApplication {
         }
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
-                .directory(file)
+                //.directory(file)
                 .name("roll_call.realm") //文件名
-                .schemaVersion(1)
                 .build();
         Realm.setDefaultConfiguration(config);
     }
