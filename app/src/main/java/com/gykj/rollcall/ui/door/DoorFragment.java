@@ -28,4 +28,9 @@ public class DoorFragment extends BaseFragment<FragmentNoticeBinding,DoorViewMod
     public int initVariableId() {
         return BR.viewModel;
     }
+
+    @Override
+    public void initData() {
+        viewModel.requestNetwork();
+    }
 }
