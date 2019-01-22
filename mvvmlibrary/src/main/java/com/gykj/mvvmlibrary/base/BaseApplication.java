@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.multidex.MultiDexApplication;
 
 import com.gykj.mvvmlibrary.utils.Utils;
 
@@ -16,7 +17,7 @@ import com.gykj.mvvmlibrary.utils.Utils;
  * version: 1.0
  */
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
     private static Application sInstance;
 
     @Override

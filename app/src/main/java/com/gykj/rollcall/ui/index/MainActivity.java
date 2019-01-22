@@ -164,7 +164,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                             public void onResponse(Call call, Response response) throws IOException {
                                 WeatherEntity weather = gson.fromJson(response.body().string(), WeatherEntity.class);
                                 RCManager.getInstance().saveWeatherInfo(weather);
-                                KLog.d("lanzhu","获取天气="+weather.getData().getGanmao());
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {

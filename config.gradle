@@ -13,6 +13,8 @@ ext {
     versions = [
             "support-version": "28.0.0",
             "junit-version"  : "4.12",
+            "multidex-version"  : "1.0.3",
+
     ]
     //support配置
     support = [
@@ -25,6 +27,7 @@ ext {
             'design'                  : "com.android.support:design:${versions["support-version"]}",
             'animated-vector-drawable': "com.android.support:animated-vector-drawable:${versions["support-version"]}",
             'junit'                   : "junit:junit:${versions["junit-version"]}",
+            'multidex'                : "com.android.support:multidex:${versions["multidex-version"]}"
     ]
     //依赖第三方配置
     dependencies = [
@@ -68,6 +71,9 @@ ext {
             "circleimageview"                      : "de.hdodenhof:circleimageview:2.2.0",
             //PictureSelector
             "PictureSelector"                      : "com.github.LuckSiege.PictureSelector:picture_library:v2.2.3",
+            //MPAndroidChart
+            "MPAndroidChart"                       : "com.github.PhilJay:MPAndroidChart:v3.1.0-alpha",
+
 
     ]
 }

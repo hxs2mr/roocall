@@ -30,6 +30,8 @@ dependencies {
     api rootProject.ext.support["appcompat-v7"]
     api rootProject.ext.support["recyclerview-v7"]
     api rootProject.ext.support["design"]
+    api rootProject.ext.support["multidex"]
+
 
     //rxjava
     api rootProject.ext.dependencies.rxjava
@@ -75,7 +77,9 @@ dependencies {
     api rootProject.ext.dependencies["circleimageview"]
     //PictureSelector
     api rootProject.ext.dependencies["PictureSelector"]
-    //
+    //MPAndroidChart
+    api rootProject.ext.dependencies["MPAndroidChart"]
+
 
 
 }

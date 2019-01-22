@@ -64,5 +64,12 @@
     <string name="state">状态</string>
     <string name="already_sign">已到</string>
     <string name="no_sign">未到</string>
+    <string name="analyse_end">已结束</string>
+    <string name="analyse_start">进行中</string>
+    <string name="delete_search_data">清除查询数据</string>
+    <string name="personal_sign_state">个人签到情况Top10</string>
+    <string name="history_sign_total_list">历史签到人数统计表</string>
+    <string name="already_arrive">已到</string>
+    <string name="no_arrive">未到</string>
 
 </resources>
