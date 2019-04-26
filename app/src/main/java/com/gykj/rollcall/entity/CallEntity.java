@@ -13,7 +13,7 @@ public class CallEntity {
     private String callDate;
     private int callType;
     private boolean enable;
-
+    
     public String getCallName() {
         return callName;
     }
