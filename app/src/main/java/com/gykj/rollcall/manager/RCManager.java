@@ -21,7 +21,6 @@ public class RCManager {
         mACache = ACache.get(RollCallApplication.getInstance());
     }
 
-
     public static RCManager getInstance(){
         return RCManagerHolde.instance;
     }

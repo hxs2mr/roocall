@@ -18,7 +18,6 @@ public class CityRealm extends RealmObject {
     private String province;
 
 
-
     public String getCityCode() {
         return cityCode;
     }

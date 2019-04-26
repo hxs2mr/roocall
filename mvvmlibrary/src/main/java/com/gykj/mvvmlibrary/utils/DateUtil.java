@@ -246,13 +246,28 @@ public class DateUtil {
         }
         return returnTimeStamp;
     }
-
+    // 获取当前日期的邮戳
+    public static long getCurrentTime() {
+        long returnTimeStamp = 0;
+        Date aDate = null;
+        try {
+            aDate = convertStringToDate("yyyy-MM-dd HH:mm", getDateTime());
+        } catch (ParseException pe) {
+            aDate = null;
+        }
+        if (aDate == null) {
+            returnTimeStamp = 0;
+        } else {
+            returnTimeStamp = aDate.getTime();
+        }
+        return returnTimeStamp;
+    }
     // 获取当前日期的邮戳
     public static long getCurrentTimeStamp() {
         long returnTimeStamp = 0;
         Date aDate = null;
         try {
-            aDate = convertStringToDate("yyyyMMddHHmmss", getDateTime());
+            aDate = convertStringToDate("yyyy-MM-dd HH:mm", getDateTime());
         } catch (ParseException pe) {
             aDate = null;
         }
@@ -299,7 +314,7 @@ public class DateUtil {
         String strReturn = null;
         Date now = new Date();
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             strReturn = sdf.format(now);
         } catch (Exception e) {
             strReturn = "";

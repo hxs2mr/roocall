@@ -18,16 +18,18 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-
-
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            binding:itemBinding="@{viewModel.itemBinding}"
             binding:adapter="@{viewModel.adapter}"
-            binding:items="@{viewModel.observableList}"/>
-
+           />
+        </android.support.v4.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

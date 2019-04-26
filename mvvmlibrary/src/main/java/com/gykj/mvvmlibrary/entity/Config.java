@@ -13,4 +13,5 @@ public class Config {
     public static final String NOTICE_DETAIL = "NOTICE_DETAIL";
     public static final String CITY_INFO = "CITY_INFO";
     public static final String WEATHER_INFO = "WEATHER_INFO";
+    public static final String NAME="NAME";
 }

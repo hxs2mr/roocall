@@ -9,6 +9,7 @@ import com.gykj.rollcall.R;
 import com.gykj.rollcall.BR;
 import com.gykj.rollcall.databinding.ActivityLossDetailBinding;
 import com.gykj.rollcall.entity.LossEntity;
+import com.gykj.rollcall.model.LossBean;
 
 import static com.gykj.mvvmlibrary.entity.Config.LOSS_DETAIL;
 
@@ -27,8 +28,7 @@ public class LossDetailActivity extends BaseActivity<ActivityLossDetailBinding,L
 
     @Override
     public void initData() {
-        LossEntity entity = (LossEntity) getIntent().getExtras().getSerializable(LOSS_DETAIL);
-        KLog.d("lanzhu",entity.getRoom());
+        LossBean.RecordsBean entity = ( LossBean.RecordsBean) getIntent().getExtras().getSerializable(LOSS_DETAIL);
         viewModel.setLossDetail(entity);
     }
 }

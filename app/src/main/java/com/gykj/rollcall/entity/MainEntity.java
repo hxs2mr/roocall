@@ -19,7 +19,6 @@ public class MainEntity implements Serializable {
     private List<String> images;
 
 
-
     public String getTitle() {
         return title;
     }

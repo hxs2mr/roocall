@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gykj.rollcall.ui.call.CallItemViewModel"/>
+            type="com.gykj.rollcall.model.RollPageBean.RecordsBean"/>
     </data>
 
     <LinearLayout
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_333333"
                 android:textSize="11sp"
-                android:text="@{@string/call_people + viewModel.entity.callName}"
+                android:text="@{@string/call_people + viewModel.gmtCreate}"
                 android:layout_marginLeft="12dp"/>
 
             <TextView
@@ -35,23 +35,22 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_6e6e6e"
                 android:textSize="11sp"
-                android:text="@{viewModel.entity.callType == 0? @string/call_type + @string/call_single:@string/call_type + @string/call_point}"
+                android:text="@{viewModel.rollType == 0? @string/call_type + @string/call_single:@string/call_type + @string/call_point}"
                 android:layout_marginTop="6dp"
                 android:layout_marginLeft="12dp"/>
 
 
             <Switch
+                android:id="@+id/call_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="12dp"
                 android:thumb="@drawable/icon_switch_ios_thumb"
                 android:track="@drawable/icon_switch_custom_thumb"
-                binding:onCheckedChangeCommand="@{viewModel.onCheckedChangeCommand}"
-                binding:switchState="@{viewModel.entity.enable}"/>
+           />
 
         </RelativeLayout>
-
 
 
 
@@ -65,12 +64,13 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_808080"
                 android:textSize="11sp"
-                android:text="@{@string/call_date + viewModel.entity.callDate}"
+                android:text="@{@string/call_date + viewModel.startTime+@string/reduce+viewModel.endTime}"
                 android:layout_marginLeft="12dp"
                 android:layout_centerVertical="true"/>
 
 
             <ImageView
+                android:id="@+id/ev_edit"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@mipmap/icon_modify"
@@ -78,10 +78,11 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="40dp"
-                binding:onClickCommand="@{viewModel.modifyClick}"/>
+               />
 
 
             <ImageView
+                android:id="@+id/tv_delete"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@mipmap/icon_delete"
@@ -89,10 +90,9 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="12dp"
-                binding:onClickCommand="@{viewModel.deleteClick}"/>
+               />
 
         </RelativeLayout>
-
 
         <ImageView
             style="@style/lay_divide_line_e5e5e5_horizontal"

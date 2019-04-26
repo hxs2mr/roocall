@@ -13,7 +13,6 @@ public class BindingCommand<T> {
     public BindingCommand(BindingAction execute) {
         this.execute = execute;
     }
-
     /**
      * @param execute 带泛型参数的命令绑定
      */

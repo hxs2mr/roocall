@@ -2,14 +2,10 @@
 <layout>
 
     <data>
-
         <variable
             name="viewModel"
             type="com.gykj.rollcall.ui.analyse.AnalyseViewModel"/>
-
     </data>
-
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:binding="http://schemas.android.com/apk/res-auto"
@@ -19,12 +15,13 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-
-        <android.support.design.widget.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        <android.support.design.widget.TabLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/analyse_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
+            app:tabGravity="center"
+            app:tabMode="fixed"
             app:tabIndicatorColor="@color/color_2ee0c5"
             app:tabSelectedTextColor="@color/color_ffffff"
             app:tabTextColor="@color/color_808080"

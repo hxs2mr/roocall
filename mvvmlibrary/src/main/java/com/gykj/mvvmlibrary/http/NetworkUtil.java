@@ -28,7 +28,6 @@ public class NetworkUtil {
     public static int NET_ERROR = 4; //net error
     private static int TIMEOUT = 3000; // TIMEOUT
 
-
     /**
      * check NetworkAvailable
      * @param context

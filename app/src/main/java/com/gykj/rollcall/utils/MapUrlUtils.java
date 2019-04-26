@@ -19,7 +19,6 @@ public class MapUrlUtils {
         return "http://api.map.baidu.com/geocoder?output=json&location="+latitude+","+longitude+"&ak=esNPFDwwsXWtsQfw4NMNmur1";
     }
 
-
     /**
      * 获取天气预报URL
      * @param city

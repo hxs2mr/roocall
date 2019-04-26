@@ -9,6 +9,7 @@ import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.rollcall.entity.LossEntity;
 import com.gykj.rollcall.entity.MainEntity;
+import com.gykj.rollcall.model.NoticeBean;
 
 /**
  * desc   : 通知详情ViewModel
@@ -19,7 +20,7 @@ import com.gykj.rollcall.entity.MainEntity;
  */
 public class NoticeDetailViewModel extends BaseViewModel {
 
-    public ObservableField<MainEntity> entity = new ObservableField<>();
+    public ObservableField<NoticeBean.RecordsBean> entity = new ObservableField<>();
 
     //返回按钮点击事件绑定
     public BindingCommand cancleOnClickCommand = new BindingCommand(new BindingAction() {
@@ -30,13 +31,12 @@ public class NoticeDetailViewModel extends BaseViewModel {
     });
 
 
-
     public NoticeDetailViewModel(@NonNull Application application) {
         super(application);
     }
 
-
-    public void setNoticeDetail(MainEntity entity){
+    
+    public void setNoticeDetail(NoticeBean.RecordsBean entity){
         this.entity.set(entity);
     }
 }

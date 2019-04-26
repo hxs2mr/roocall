@@ -35,6 +35,8 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     protected int viewModelId;
     private MaterialDialog dialog;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -275,4 +277,5 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     public <T extends ViewModel> T createViewModel(Fragment fragment, Class<T> cls) {
         return ViewModelProviders.of(fragment).get(cls);
     }
+
 }

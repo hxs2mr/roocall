@@ -42,7 +42,6 @@ public class CityRealmManager {
                 realm.copyToRealm(cityRealm);
             }
         }, new Realm.Transaction.OnSuccess() {
-
             @Override
             public void onSuccess() {
                 listener.OnSuccess();

@@ -36,8 +36,8 @@ public class ReleaseCallViewModel extends BaseViewModel {
     //初始化Tab fragment
     public void initFragments(){
         fragments = new ArrayList<>();
-        fragments.add(FragmentFactory.createFragment(SingleFragment.class));
-        fragments.add(FragmentFactory.createFragment(RuleFragment.class));
+        fragments.add(new SingleFragment());
+        fragments.add(new RuleFragment());
     }
 
     public ReleaseCallViewModel(@NonNull Application application) {

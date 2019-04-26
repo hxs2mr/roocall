@@ -3,13 +3,10 @@
     xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.gykj.rollcall.ui.notice.NoticeViewModel"/>
-
     </data>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +14,6 @@
         android:background="@color/color_ffffff"
         android:orientation="vertical"
         android:gravity="center_horizontal">
-
-
 
         <TextView
             android:layout_marginTop="20dp"
@@ -37,14 +32,20 @@
             android:contentDescription="@null"
             android:layout_marginTop="20dp"/>
 
-
-        <android.support.v7.widget.RecyclerView
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshlayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            binding:itemBinding="@{viewModel.itemBinding}"
-            binding:adapter="@{viewModel.adapter}"
-            binding:items="@{viewModel.observableList}"/>
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                binding:adapter="@{viewModel.adapter}"
+                />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>

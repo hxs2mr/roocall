@@ -9,6 +9,7 @@ import com.gykj.rollcall.BR;
 import com.gykj.rollcall.R;
 import com.gykj.rollcall.databinding.ActivityNoticeDetailBinding;
 import com.gykj.rollcall.entity.MainEntity;
+import com.gykj.rollcall.model.NoticeBean;
 
 public class NoticeDetailActivity extends BaseActivity<ActivityNoticeDetailBinding,NoticeDetailViewModel> {
 
@@ -25,7 +26,7 @@ public class NoticeDetailActivity extends BaseActivity<ActivityNoticeDetailBindi
 
     @Override
     public void initData() {
-        MainEntity entity = (MainEntity) getIntent().getExtras().getSerializable(Config.NOTICE_DETAIL);
+        NoticeBean.RecordsBean entity = (NoticeBean.RecordsBean) getIntent().getExtras().getSerializable(Config.NOTICE_DETAIL);
         viewModel.setNoticeDetail(entity);
     }
 }

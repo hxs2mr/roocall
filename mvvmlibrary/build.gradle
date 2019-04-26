@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
@@ -31,8 +35,6 @@ dependencies {
     api rootProject.ext.support["recyclerview-v7"]
     api rootProject.ext.support["design"]
     api rootProject.ext.support["multidex"]
-
-
     //rxjava
     api rootProject.ext.dependencies.rxjava
     api rootProject.ext.dependencies.rxandroid
@@ -79,7 +81,20 @@ dependencies {
     api rootProject.ext.dependencies["PictureSelector"]
     //MPAndroidChart
     api rootProject.ext.dependencies["MPAndroidChart"]
+    //dialog
+    api rootProject.ext.dependencies["flycodialog"]
+    //flexibledivider分割线
+    api rootProject.ext.dependencies["flexibledivider"]
+    //阿里云oss对象存储
+    api rootProject.ext.dependencies["alioss"]
+    //Adapter
+    api rootProject.ext.dependencies["recyclerview-adapter"]
+    api rootProject.ext.dependencies["okhttp-logging-interceptor"]
 
+    //mq
+    api rootProject.ext.dependencies["amqp_client"]
 
+    api rootProject.ext.dependencies["fastjson"]
 
+    api rootProject.ext.dependencies["pickerview"]
 }

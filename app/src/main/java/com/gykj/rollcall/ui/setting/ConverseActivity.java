@@ -1,26 +1,21 @@
 package com.gykj.rollcall.ui.setting;
-
-
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.animation.DecelerateInterpolator;
 
 import com.gykj.mvvmlibrary.base.BaseActivity;
+import com.gykj.rollcall.BR;
 import com.gykj.rollcall.R;
 import com.gykj.rollcall.databinding.ActivityConverseBinding;
 import com.gykj.rollcall.utils.ScreenUtil;
 
-import me.tatarka.bindingcollectionadapter2.BR;
 
 public class ConverseActivity extends BaseActivity<ActivityConverseBinding,ConverseViewModel> {
-
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_converse;
     }
-
     @Override
     public int initVariableId() {
         return BR.viewModel;
@@ -36,7 +31,6 @@ public class ConverseActivity extends BaseActivity<ActivityConverseBinding,Conve
         binding.converseRippleView.setSpeed(600);
         binding.converseRippleView.setInitialRadius(ScreenUtil.dip2px(this,30));
         binding.converseRippleView.start();
-
     }
 
     @Override

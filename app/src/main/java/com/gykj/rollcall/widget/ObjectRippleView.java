@@ -112,7 +112,6 @@ public class ObjectRippleView extends View {
 
     protected void onDraw(Canvas canvas) {
         Iterator<Circle> iterator = mCircleList.iterator();
-
         while (iterator.hasNext()) {
             Circle circle = iterator.next();
             float radius = circle.getCurrentRadius();

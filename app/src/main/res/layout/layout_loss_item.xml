@@ -5,18 +5,18 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gykj.rollcall.ui.loss.LossItemVeiwModel"/>
+            type="com.gykj.rollcall.model.LossBean.RecordsBean"/>
     </data>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:foreground="?attr/selectableItemBackground"
         android:background="@color/color_ffffff">
 
-
         <RelativeLayout
+            android:id="@+id/releate_detail"
             android:layout_width="match_parent"
             android:layout_height="80dp">
 
@@ -26,15 +26,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:src="@mipmap/icon_default_user"
-                binding:url="@{viewModel.entity.avater}"
-                binding:placeholderRes="@mipmap/icon_default_user" />
 
+                binding:placeholderRes="@mipmap/icon_default_user" />
 
             <TextView
                 android:id="@+id/loss_people_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/loss_people + viewModel.entity.people}"
+                android:text="@{@string/loss_people + viewModel.userName}"
                 android:textColor="@color/color_515151"
                 android:textSize="12sp"
                 android:layout_marginTop="14dp"
@@ -45,7 +44,7 @@
                 android:layout_below="@+id/loss_people_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/items + viewModel.entity.items}"
+                android:text="@{@string/items + viewModel.articleName+@string/articname1+ viewModel.spec+@string/articname2}"
                 android:textColor="@color/color_6e6e6e"
                 android:textSize="12sp"
                 android:layout_marginTop="4dp"
@@ -53,6 +52,7 @@
 
 
             <TextView
+                android:id="@+id/tv_back"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
                 android:textSize="10sp"
@@ -60,9 +60,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="18dp"
                 android:layout_marginRight="20dp"
-                android:textColor="@{viewModel.entity.type == 0?@color/color_2ee0c5:@color/color_5298fc}"
-                android:background="@{viewModel.entity.type == 0? @drawable/icon_no_deal_btn_bg :@drawable/icon_deal_btn_bg}"
-                android:text="@{viewModel.entity.type == 0? @string/no_deal :@string/deal}"/>
+                android:textColor="@{viewModel.status == 0?@color/color_2ee0c5:@color/color_5298fc}"
+                android:background="@{viewModel.status== 0? @drawable/icon_no_deal_btn_bg :@drawable/icon_deal_btn_bg}"
+                android:text="@{viewModel.status == 0? @string/no_deal :@string/deal}"/>
 
             <RelativeLayout
                 android:layout_below="@+id/loss_items_tv"
@@ -74,15 +74,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/date + viewModel.entity.date}"
+                    android:text="@{@string/date + viewModel.gmtCreate}"
                     android:textColor="@color/color_6e6e6e"
                     android:textSize="12sp"
                     android:layout_centerVertical="true"/>
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@mipmap/icon_deal"
+                    android:id="@+id/iv_change"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@mipmap/icon_deal"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerInside"
@@ -90,14 +91,13 @@
 
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@mipmap/icon_scan"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@mipmap/icon_scan"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerInside"
-                    binding:onClickCommand="@{viewModel.scanOnClickCommand}"/>
-
+                    />
 
             </RelativeLayout>
 

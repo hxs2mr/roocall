@@ -1,15 +1,21 @@
 package com.gykj.rollcall.app;
 
+import android.content.Context;
 import android.os.Environment;
 
 import com.gykj.mvvmlibrary.BuildConfig;
 import com.gykj.mvvmlibrary.base.BaseApplication;
+import com.gykj.mvvmlibrary.config.AutoLayoutConifg;
 import com.gykj.mvvmlibrary.utils.KLog;
+import com.gykj.rollcall.R;
+import com.gykj.rollcall.mq.RabbiMqEngine;
+import com.gykj.rollcall.ui.login.LoginActivity;
 
 import java.io.File;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+
 
 /**
  * desc   : 点名系统Application
@@ -20,11 +26,13 @@ import io.realm.RealmConfiguration;
  */
 public class RollCallApplication extends BaseApplication {
 
-    private final String FACE_DB_PATH = Environment.getExternalStorageDirectory() + File.separator+"realmDb/";
-
+    private final String FACE_DB_PATH = Environment.getExternalStorageDirectory() + File.separator+"callDb/";
+    private static RollCallApplication instance;
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
+        AutoLayoutConifg.getInstance().init(this);
         //是否开启打印日志
         KLog.init(BuildConfig.DEBUG);
         //realm初始化
@@ -34,9 +42,22 @@ public class RollCallApplication extends BaseApplication {
         }
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
-                //.directory(file)
-                .name("roll_call.realm") //文件名
+                .directory(file)
+               // .name("roll_call.realm") //文件名
                 .build();
         Realm.setDefaultConfiguration(config);
+        //初始化RabbitMq  连接设置
+        RabbiMqEngine.getRabbiMqEngine().setUpConnectionFactory();
+    }
+
+    public static synchronized RollCallApplication getInstance()
+    {
+        return  instance;
+    }
+    /**
+     * 连接RabbitMq
+     */
+    public void connectRabbitMq(String  deviceId, Context context){
+        RabbiMqEngine.getRabbiMqEngine().connect(deviceId, context);
     }
 }

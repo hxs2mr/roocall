@@ -8,6 +8,7 @@ import com.gykj.mvvmlibrary.base.BaseViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.rollcall.entity.LossEntity;
+import com.gykj.rollcall.model.LossBean;
 
 /**
  * desc   : 报损详情ViewModel
@@ -26,15 +27,13 @@ public class LossDetailViewModel extends BaseViewModel {
         }
     });
 
-
-    public ObservableField<LossEntity> entity = new ObservableField<>();
+    public ObservableField<LossBean.RecordsBean> entity = new ObservableField<>();
 
     public LossDetailViewModel(@NonNull Application application) {
         super(application);
     }
 
-
-    public void setLossDetail(LossEntity entity){
+    public void setLossDetail(LossBean.RecordsBean entity){
         this.entity.set(entity);
     }
 }

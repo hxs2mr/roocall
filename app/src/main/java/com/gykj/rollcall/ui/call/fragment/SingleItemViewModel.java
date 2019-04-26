@@ -7,6 +7,7 @@ import com.gykj.mvvmlibrary.base.ItemViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.rollcall.entity.RoomEntity;
+import com.gykj.rollcall.model.DormitoryBean;
 
 /**
  * desc   : 单次点名ItemViewModel
@@ -18,10 +19,11 @@ import com.gykj.rollcall.entity.RoomEntity;
 public class SingleItemViewModel extends ItemViewModel<SingleViewModel> {
 
 
-    public ObservableField<RoomEntity> entity = new ObservableField<>();
+    public ObservableField<DormitoryBean> entity = new ObservableField<>();
 
-    public SingleItemViewModel(@NonNull SingleViewModel viewModel,RoomEntity entity) {
+    public SingleItemViewModel(@NonNull SingleViewModel viewModel,DormitoryBean entity) {
         super(viewModel);
         this.entity.set(entity);
     }
+
 }

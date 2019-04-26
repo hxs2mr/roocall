@@ -7,9 +7,6 @@ import com.gykj.mvvmlibrary.utils.KLog;
 import com.gykj.mvvmlibrary.utils.ToastUtils;
 
 import io.reactivex.observers.DisposableObserver;
-
-
-
 /**
  * desc   : 该类仅供参考，实际业务Code, 根据需求来定义，
  * author : josh.lu

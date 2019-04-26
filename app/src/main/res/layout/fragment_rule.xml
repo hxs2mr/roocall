@@ -23,31 +23,42 @@
             android:layout_height="26dp"
             android:layout_marginRight="44dp"
             android:layout_marginLeft="44dp"
+            binding:onClickCommand="@{viewModel.onclickDate}"
             android:layout_marginTop="20dp">
 
             <TextView
-                android:layout_width="60dp"
+                android:id="@+id/fanwei"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/start_date"
-                android:textSize="12sp"
+                android:text="点名日期范围"
+                android:textSize="13sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_515151"
                 android:layout_centerVertical="true"
                 android:gravity="end"
                 android:paddingRight="10dp"/>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_toRightOf="@id/fanwei"
+                android:id="@+id/tv_date"
+                android:layout_width="170dp"
+                android:paddingLeft="10dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textSize="12sp"
-                android:layout_marginLeft="60dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:hint="请选择"
+                android:text="@{viewModel.obdate}"
                 android:textColor="@color/color_808080"
                 android:layout_centerVertical="true" />
 
             <ImageView
-                style="@style/lay_divide_line_e5e5e5_horizontal"
-                android:layout_marginLeft="60dp"
-                android:layout_alignParentBottom="true"/>
-
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_date"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@mipmap/icon_right"
+                />
 
         </RelativeLayout>
 
@@ -57,32 +68,41 @@
             android:layout_height="26dp"
             android:layout_marginRight="44dp"
             android:layout_marginLeft="44dp"
-            android:layout_marginTop="6dp">
+            binding:onClickCommand="@{viewModel.onclickTime}"
+            android:layout_marginTop="12dp">
 
             <TextView
-                android:layout_width="60dp"
+                android:id="@+id/fanwei_time"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/arrive"
-                android:textSize="12sp"
+                android:text="点名时间范围"
+                android:textSize="13sp"
+                android:textStyle="bold"
                 android:textColor="@color/color_515151"
                 android:layout_centerVertical="true"
                 android:gravity="end"
                 android:paddingRight="10dp"/>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_toRightOf="@+id/fanwei_time"
+                android:id="@+id/tv_time"
+                android:layout_width="170dp"
+                android:paddingLeft="10dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textSize="12sp"
-                android:layout_marginLeft="60dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:hint="请选择"
+                android:text="@{viewModel.obtime}"
                 android:textColor="@color/color_808080"
                 android:layout_centerVertical="true" />
-
             <ImageView
-                style="@style/lay_divide_line_e5e5e5_horizontal"
-                android:layout_marginLeft="60dp"
-                android:layout_alignParentBottom="true"/>
-
-
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_time"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@mipmap/icon_right"
+                />
         </RelativeLayout>
 
 
@@ -108,13 +128,16 @@
                 android:textColor="@color/color_515151"
                 android:layout_centerVertical="true"
                 android:gravity="end"
+                android:textStyle="bold"
                 android:paddingRight="10dp"/>
 
             <CheckBox
+                android:id="@+id/checkall_week"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:layout_toLeftOf="@+id/rule_week_total_tv"
                 android:layout_marginRight="6dp"
+                android:checked="true"
                 binding:onCheckedChangedCommand="@{viewModel.onWeekCheckedChangeCommand}"/>
 
 
@@ -147,11 +170,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             binding:layoutManager="android.support.v7.widget.GridLayoutManager"
-            binding:spanCount="4"
-            binding:itemBinding="@{viewModel.weekItemBinding}"
+            binding:spanCount="7"
             binding:adapter="@{viewModel.weekAdapter}"
-            binding:items="@{viewModel.weekObservableList}"/>
-
+          />
 
 
 
@@ -169,22 +190,24 @@
             android:layout_marginTop="12dp">
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/call_range"
                 android:textSize="12sp"
                 android:textColor="@color/color_515151"
                 android:layout_centerVertical="true"
                 android:gravity="end"
+                android:textStyle="bold"
                 android:paddingRight="10dp"/>
 
             <CheckBox
+                android:id="@+id/checkall_room"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:layout_toLeftOf="@+id/rule_total_tv"
                 android:layout_marginRight="6dp"
+                android:checked="true"
                 binding:onCheckedChangedCommand="@{viewModel.onCheckedChangeCommand}"/>
-
 
             <TextView
                 android:id="@+id/rule_total_tv"
@@ -207,7 +230,6 @@
             android:layout_marginLeft="44dp"
             android:layout_marginRight="44dp"/>
 
-
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="44dp"
@@ -215,13 +237,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             binding:layoutManager="android.support.v7.widget.GridLayoutManager"
-            binding:spanCount="4"
-            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:spanCount="6"
             binding:adapter="@{viewModel.adapter}"
-            binding:items="@{viewModel.observableList}"/>
+       />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_certain_btn_bg"
+                android:gravity="center"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp"
+                binding:onClickCommand="@{viewModel.okclicklinster}"
+                android:text="@string/certain"/>
 
 
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_cancle_btn_bg"
+                android:gravity="center"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp"
+                android:text="@string/cancle"
+                android:layout_alignParentRight="true"
+                binding:onClickCommand="@{viewModel.cancelclicklinster}"/>
 
+        </RelativeLayout>
 
     </LinearLayout>
 

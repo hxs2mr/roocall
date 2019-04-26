@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:binding="http://schemas.android.com/apk/res-auto">
-
+<layout
+>
     <data>
 
         <variable
+            type="com.gykj.rollcall.ui.door.DoorViewModel"
             name="viewModel"
-            type="com.gykj.rollcall.ui.door.DoorViewModel"/>
+            />
 
     </data>
 
-
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_ffffff"
@@ -22,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/color_efefef">
-
 
             <RelativeLayout
                 android:layout_toLeftOf="@+id/borrow_search_layout"
@@ -43,6 +43,7 @@
 
 
                 <EditText
+                    android:id="@+id/door_edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="36dp"
@@ -50,7 +51,6 @@
                     android:hint="@string/please_input_name_or_number"
                     android:textSize="12sp"
                     android:textColor="@color/color_333333"/>
-
 
             </RelativeLayout>
 
@@ -86,30 +86,18 @@
                 <RelativeLayout
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@+id/door_state"
-                    android:layout_width="80dp"
+                    android:layout_width="83dp"
                     android:layout_height="32dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/icon_search_et_bg">
-
-                    <TextView
-                        style="@style/lay_loss_text_style"
-                        android:text="已到"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"/>
-
-
-                    <ImageView
-                        style="@style/lay_divide_line_e5e5e5_vertical"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"/>
-
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@mipmap/icon_down"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"/>
+                    >
+                    <Spinner
+                        android:id="@+id/door_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/languages"
+                        />
 
                 </RelativeLayout>
 
@@ -120,16 +108,21 @@
         </RelativeLayout>
 
 
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            binding:itemBinding="@{viewModel.itemBinding}"
             binding:adapter="@{viewModel.adapter}"
-            binding:items="@{viewModel.observableList}"/>
-
-
-
+        />
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 
 </layout>

@@ -25,8 +25,6 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class ParseXmlUtils {
 
-
-
     public static void parseXml(InputStream inputStream) throws Exception {
         // 得到工厂
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

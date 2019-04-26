@@ -2,16 +2,23 @@ package com.gykj.rollcall.ui.notice;
 
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
 
+import com.flyco.dialog.listener.OnBtnClickL;
+import com.flyco.dialog.widget.NormalDialog;
 import com.gykj.mvvmlibrary.base.ItemViewModel;
 import com.gykj.mvvmlibrary.binding.command.BindingAction;
 import com.gykj.mvvmlibrary.binding.command.BindingCommand;
 import com.gykj.mvvmlibrary.entity.Config;
 import com.gykj.mvvmlibrary.utils.KLog;
+import com.gykj.rollcall.app.RollCallApplication;
 import com.gykj.rollcall.entity.MainEntity;
 import com.gykj.rollcall.ui.index.MainViewModel;
+import com.gykj.rollcall.ui.setting.SettingViewModel;
 
 /**
  * desc   : 主界面ItemViewModel
@@ -34,15 +41,6 @@ public class NoticeItemViewModel extends ItemViewModel<NoticeViewModel> {
         @Override
         public void call() {
             KLog.d("lanzhu","modifyClick");
-        }
-    });
-
-    //条目的删除事件
-    public BindingCommand deleteClick = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            KLog.d("lanzhu","deleteClick");
-
         }
     });
 

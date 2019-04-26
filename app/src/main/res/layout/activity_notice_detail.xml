@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_333333"
             android:textSize="16sp"
-            android:text="@{viewModel.entity.title}"
+            android:text="@{viewModel.entity.noticeTitle}"
             android:gravity="center"
             android:layout_marginTop="20dp"/>
 
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_6e6e6e"
             android:textSize="12sp"
-            android:text="@{viewModel.entity.people}"
+            android:text="@{viewModel.entity.gmtCreate}"
             android:gravity="center"
             android:layout_marginTop="10dp"/>
 
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_515151"
             android:textSize="14sp"
-            android:text="@{viewModel.entity.content}"
+            android:text="@{viewModel.entity.noticeDesc}"
             android:gravity="start" />
 
 
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_6e6e6e"
             android:textSize="12sp"
-            android:text="@{viewModel.entity.date}"
+            android:text="@{viewModel.entity.gmtModified}"
             android:gravity="end"
             android:layout_marginRight="20dp"/>
 

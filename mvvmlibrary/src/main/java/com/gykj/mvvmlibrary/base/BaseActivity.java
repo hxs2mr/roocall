@@ -70,7 +70,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         viewModel = null;
         binding.unbind();
     }
-
     /**
      * 注入绑定
      */
@@ -104,7 +103,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
             binding.setVariable(viewModelId, viewModel);
         }
     }
-
 
     /**
      * =====================================================================
@@ -268,7 +266,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
 
     /**
      * 创建ViewModel
-     *
      * @param cls
      * @param <T>
      * @return

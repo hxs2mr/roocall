@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:supports-screensandroid="http://schemas.android.com/apk/res-auto"
     package="com.gykj.rollcall">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,6 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".app.RollCallApplication"
@@ -24,7 +30,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.notice.NoticeDetailActivity"></activity>
+
+        <activity android:name=".ui.notice.NoticeDetailActivity"/>
+
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,18 +41,32 @@
             </intent-filter>
         </activity>
 
+        <!--手机暂时是  384   512 -->
+        <!--平板暂时是  960     720-->
+        <!--androidautosize  适配屏幕方案  平板和手机-->
         <meta-data
             android:name="design_width_in_dp"
-            android:value="384" />
+            android:value="960" />
         <meta-data
             android:name="design_height_in_dp"
-            android:value="512" />
+            android:value="720" />
+
+        <meta-data
+            android:name="design_width"
+            android:value="960"/>
+
+        <meta-data
+            android:name="design_height"
+            android:value="720"/>
 
         <activity android:name=".ui.index.MainActivity" />
         <activity android:name=".ui.notice.ReleaseActivity" />
         <activity android:name=".ui.setting.ConverseActivity" />
         <activity android:name=".ui.call.ReleaseCallActivity" />
         <activity android:name=".ui.loss.LossDetailActivity" />
+        <activity android:name=".ui.analyse.activity.RecordDetailActivity"/>
+
+
     </application>
 
 </manifest>

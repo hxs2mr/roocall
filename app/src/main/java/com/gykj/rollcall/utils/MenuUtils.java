@@ -60,8 +60,14 @@ public class MenuUtils {
         analyse.setMenu_title(context.getString(R.string.titie_analyse));
         menuList.add(analyse);
 
+        MainMenuInfo police  = new MainMenuInfo();
+        police.setId(7);
+        police.setMenu_icon(R.mipmap.icon_waring_jilu);
+        police.setMenu_title("报警记录");
+        menuList.add(police);
+
         MainMenuInfo setting  = new MainMenuInfo();
-        setting.setId(7);
+        setting.setId(8);
         setting.setMenu_icon(R.mipmap.icon_menu_setting);
         setting.setMenu_title(context.getString(R.string.titie_setting));
         menuList.add(setting);

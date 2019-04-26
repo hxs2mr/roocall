@@ -56,7 +56,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 binding:placeholderRes="@mipmap/icon_default_user"
-                binding:url="@{viewModel.entity.avater}"/>
+                />
 
 
             <TextView
@@ -66,7 +66,7 @@
                 android:layout_marginTop="90dp"
                 android:textColor="@color/color_333333"
                 android:textSize="14sp"
-                android:text="@{viewModel.entity.people}"/>
+                android:text="@{viewModel.entity.userName}"/>
 
 
 
@@ -87,7 +87,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.room}"/>
+                android:text="@{viewModel.entity.dormitoryId+@string/dormitory}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -108,7 +108,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.items}"/>
+                android:text="@{viewModel.entity.articleName}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -128,7 +128,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.model}"/>
+                android:text="@{viewModel.entity.spec}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -151,7 +151,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.type == 0? @string/no_deal:@string/deal}"/>
+                android:text="@{viewModel.entity.status == 0? @string/no_deal:@string/deal}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -172,7 +172,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.detail}"/>
+                android:text="@{viewModel.entity.reportDesc}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -193,7 +193,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.date}"/>
+                android:text="@{viewModel.entity.gmtModified}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"
@@ -214,7 +214,7 @@
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="64dp"
-                android:text="@{viewModel.entity.deal_date}"/>
+                android:text="@{viewModel.entity.gmtCreate}"/>
 
             <ImageView
                 style="@style/lay_divide_line_e5e5e5_horizontal"

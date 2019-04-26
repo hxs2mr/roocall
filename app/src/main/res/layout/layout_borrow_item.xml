@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gykj.rollcall.ui.borrow.BorrowItemViewModel"/>
+            type="com.gykj.rollcall.model.BorrowBean.RecordsBean"/>
     </data>
 
     <LinearLayout
@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/color_ffffff">
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,7 +25,6 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="12dp"
                 android:src="@mipmap/icon_default_user"
-                binding:url="@{viewModel.entity.avater}"
                 binding:placeholderRes="@mipmap/icon_default_user" />
 
 
@@ -37,18 +35,18 @@
                 android:textSize="14sp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="14dp"
-                android:text="@{viewModel.entity.name + @string/reduce + viewModel.entity.room}"/>
+                android:text="@{viewModel.userName + @string/reduce + viewModel.dormitoryId +@string/dormitory}"/>
 
             <TextView
                 style="@style/lay_loss_text_style"
                 android:layout_marginLeft="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="12dp"
-                android:text="@{viewModel.entity.code}" />
-
+                android:text="@{viewModel.userNum}" />
 
 
             <TextView
+                android:id="@+id/tv_status_back"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
                 android:textSize="10sp"
@@ -56,13 +54,12 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="12dp"
-                android:textColor="@{viewModel.entity.type == 0?@color/color_2ee0c5:@color/color_5298fc}"
-                android:background="@{viewModel.entity.type == 0? @drawable/icon_no_deal_btn_bg :@drawable/icon_deal_btn_bg}"
-                android:text="@{viewModel.entity.type == 0? @string/no_return :@string/already_return}"/>
+                android:textColor="@{viewModel.status == 0?@color/color_2ee0c5:@color/color_5298fc}"
+                android:background="@{viewModel.status== 0? @drawable/icon_no_deal_btn_bg :@drawable/icon_deal_btn_bg}"
+                android:text="@{viewModel.status == 0? @string/no_return :@string/already_return}"/>
 
 
         </RelativeLayout>
-
 
 
         <RelativeLayout
@@ -79,7 +76,7 @@
 
             <TextView
                 style="@style/lay_loss_text_style"
-                android:text="@{@string/items + viewModel.entity.items}"
+                android:text="@{@string/items + viewModel.articleName+@string/article+viewModel.articleNum}"
                 android:layout_marginLeft="55dp"
                 android:layout_centerVertical="false"
                 android:layout_marginTop="6dp"/>
@@ -87,7 +84,7 @@
 
             <TextView
                 style="@style/lay_loss_text_style"
-                android:text="@{@string/date + viewModel.entity.date}"
+                android:text="@{@string/date + viewModel.gmtCreate}"
                 android:layout_marginLeft="55dp"
                 android:layout_centerVertical="false"
                 android:layout_alignParentBottom="true"
@@ -108,6 +105,7 @@
             android:layout_height="46dp">
 
             <TextView
+                android:id="@+id/tv_return"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="132dp"
                 android:text="@string/item_return"
@@ -119,6 +117,7 @@
                 android:layout_centerVertical="true"/>
 
             <TextView
+                android:id="@+id/tv_edit"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="72dp"
                 android:text="@string/modify"
@@ -131,6 +130,7 @@
 
 
             <TextView
+                android:id="@+id/tv_delete"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="12dp"
                 android:text="@string/delete"

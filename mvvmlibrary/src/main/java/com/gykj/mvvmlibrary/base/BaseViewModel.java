@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -33,6 +34,7 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
     private UIChangeLiveData uc;
     private LifecycleProvider lifecycle;
 
+    private Context mContext;
     protected CompositeDisposable compositeDisposable;
 
     public BaseViewModel(@NonNull Application application) {
@@ -52,7 +54,7 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
         return lifecycle;
     }
 
-    public UIChangeLiveData getUC() {
+    public UIChangeLiveData getUC()  {
         if (uc == null) {
             uc = new UIChangeLiveData();
         }
@@ -104,7 +106,6 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
     public void startContainerActivity(String canonicalName) {
         startContainerActivity(canonicalName, null);
     }
-
     /**
      * 跳转容器页面
      *
@@ -245,10 +246,13 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
             @Override
             public void accept(Throwable throwable) throws Exception {
                 ToastUtils.showShort( "获取数据异常"+throwable.getMessage());
-                KLog.i("lanzhu"+throwable.getMessage());
+               // KLog.i("lanzhu"+throwable.getMessage());
                 dismissDialog();
             }
         };
         return errorConsumer;
     }
+
+
+
 }

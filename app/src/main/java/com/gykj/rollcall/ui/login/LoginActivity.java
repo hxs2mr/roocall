@@ -5,18 +5,22 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 
 import com.gykj.mvvmlibrary.base.BaseActivity;
-import com.gykj.mvvmlibrary.entity.CityRealm;
+import com.gykj.mvvmlibrary.entity.callrealm.CallRealm;
+import com.gykj.mvvmlibrary.utils.Contract;
 import com.gykj.mvvmlibrary.utils.KLog;
 import com.gykj.rollcall.R;
+import com.gykj.rollcall.callback.CallTimerBack;
 import com.gykj.rollcall.databinding.ActivityLoginBinding;
 import com.gykj.rollcall.BR;
-import com.gykj.rollcall.utils.ParseXmlUtils;
+import com.gykj.rollcall.utils.BASE64;
+import com.gykj.rollcall.utils.TimerUtil;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.realm.Realm;
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 /**
@@ -29,12 +33,11 @@ import io.realm.RealmResults;
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 
     private Disposable subscribe;
-
+    private Realm mRealm;
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_login;
     }
-
     @Override
     public int initVariableId() {
         return BR.viewModel;
@@ -47,6 +50,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void initData() {
+        Contract.Authorization = "Basic "+ BASE64.getBASE64("test:test");
 //        RealmResults<CityRealm> all = Realm.getDefaultInstance().where(CityRealm.class).findAll();
 //        if(null == all || all.size() == 0){
 //            try {
@@ -81,10 +85,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                     }
                 });
 
-
     }
-
-
     @Override
     protected void onDestroy() {
         if(null != subscribe && subscribe.isDisposed()){

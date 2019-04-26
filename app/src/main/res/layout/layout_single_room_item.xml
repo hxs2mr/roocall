@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gykj.rollcall.ui.call.fragment.SingleItemViewModel"/>
+            type="com.gykj.rollcall.model.DormitoryBean"/>
     </data>
 
     <RelativeLayout
@@ -12,11 +12,11 @@
         android:layout_width="70dp"
         android:layout_height="32dp">
         <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_centerVertical="true"
-            android:checked="@{viewModel.entity.isCheck}" />
-
+             />
 
         <TextView
             android:id="@+id/single_total_tv"
@@ -27,7 +27,7 @@
             android:textColor="@color/color_515151"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
-            android:text="@{viewModel.entity.roomName}"/>
+           />
 
     </RelativeLayout>
 

@@ -28,7 +28,6 @@ public class BaseApplication extends MultiDexApplication {
 
     /**
      * 当主工程没有继承BaseApplication时，可以使用setApplication方法初始化BaseApplication
-     *
      * @param application
      */
     public static synchronized void setApplication(@NonNull Application application) {

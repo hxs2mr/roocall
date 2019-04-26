@@ -47,14 +47,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="36dp"
+                        android:gravity="center|left"
                         android:background="@null"
+                        android:textColorHint="#cdcdcd"
                         android:hint="@string/please_input_name_or_number"
                         android:textSize="12sp"
                         android:textColor="@color/color_333333"/>
-
-
                 </RelativeLayout>
-
 
 
                 <RelativeLayout
@@ -108,9 +107,11 @@
 
 
             <RelativeLayout
+                android:id="@+id/end_rl_record"
                 android:layout_width="match_parent"
+                android:background="@drawable/end_fragment_d_select"
+                binding:onClickCommand="@{viewModel.dmrecord}"
                 android:layout_height="70dp">
-
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_centerVertical="true"
@@ -122,13 +123,15 @@
 
 
                 <TextView
+                    android:id="@+id/end_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_5298fc"
                     android:textSize="14sp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="10dp"
-                    android:text="张小溪-101室"/>
+                    android:text="@={viewModel.username}"
+                    />
 
                 <TextView
                     style="@style/lay_loss_text_style"
@@ -190,10 +193,25 @@
                 android:contentDescription="@null"/>
 
 
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                >
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -212,11 +230,124 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="#efefef"
+
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="340dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_515151"
+                        android:text="个人未签到TOP10"/>
+
+                    <ImageView
+                        style="@style/lay_divide_line_e5e5e5_horizontal"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"/>
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/end_total_linechart"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="#efefef"
+
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="340dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_515151"
+                        android:text="宿舍未到总数TOP10"/>
+
+                    <ImageView
+                        style="@style/lay_divide_line_e5e5e5_horizontal"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"/>
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/end_total_piechart"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                </LinearLayout>
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="#efefef"
+
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="340dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_515151"
+                        android:text="未到率TOP10"/>
+
+                    <ImageView
+                        style="@style/lay_divide_line_e5e5e5_horizontal"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"/>
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/end_dao_barchart"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                </LinearLayout>
 
 
             </LinearLayout>
+            </ScrollView>
+
+
 
 
         </LinearLayout>

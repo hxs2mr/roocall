@@ -5,11 +5,16 @@ import android.databinding.Observable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.gykj.mvvmlibrary.base.BaseActivity;
+import com.gykj.mvvmlibrary.utils.Contract;
+import com.gykj.mvvmlibrary.utils.ToastUtils;
 import com.gykj.rollcall.R;
 import com.gykj.rollcall.databinding.ActivityReleaseBinding;
 import com.gykj.rollcall.BR;
+import com.gykj.rollcall.oss.OssUpload;
+import com.gykj.rollcall.oss.UploadCallBack;
 import com.gykj.rollcall.ui.index.MainActivity;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -20,6 +25,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.tatarka.bindingcollectionadapter2.BindingListViewAdapter;
+
 /**
  * desc   : 发布通告界面
  * author : josh.lu
@@ -27,15 +34,23 @@ import java.util.List;
  * date   : 2018/12/2711:54
  * version: 1.0
  */
-public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,ReleaseViewModel> {
+public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,ReleaseViewModel> implements UploadCallBack {
 
     private List<LocalMedia> mediaList = new ArrayList<>();
     private String mPhotoPath;
+
+    private Bundle bundle;
+
+    //标记是发布通知还是修改通知  0 表示发布  1表示修改
+    private int IsFlage=0;
+    private String title;
+    private String content;
+    private String UrlImg;
+    private int ID;
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_release;
     }
-
     @Override
     public int initVariableId() {
         return BR.viewModel;
@@ -43,6 +58,12 @@ public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,Release
 
     @Override
     public void initData() {
+        bundle = getIntent().getExtras();
+        if (bundle != null)
+        {
+            initbund(bundle);
+        }
+
         boolean sdCardExist = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);   //判断sd卡是否存在
         if(sdCardExist){
             mPhotoPath = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"gykj/";
@@ -57,14 +78,40 @@ public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,Release
 
     @Override
     public void initViewObservable() {
+        /**
+         * 确认提交
+         */
+        viewModel.uc.uploadb.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                if (TextUtils.isEmpty(viewModel.title.get())) {
+                    ToastUtils.showShort("请输入通知标题！");
+                    return;
+                }
+                if (TextUtils.isEmpty(viewModel.content.get())) {
+                    ToastUtils.showShort("请输入通知的内容！");
+                    return;
+                }
+                if(IsFlage==0)
+                {
+                    //发布通知
+                    viewModel.upload("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1633600873,148835269&fm=26&gp=0.jpg");
+                }else {
+                    //修改通知
+                    viewModel.changenotice(ID,viewModel.title.get(),"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1633600873,148835269&fm=26&gp=0.jpg",viewModel.content.get());
+                }
+
+            }
+        });
+
         viewModel.uc.selectPhoto.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
                 PictureSelector.create(ReleaseActivity.this)
                         .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
-                        .theme(R.style.picture_white_style)//主题样式(不设置为默认样式) 也可参考demo values/styles下 例如：R.style.picture.white.style
-                        .maxSelectNum(9)// 最大图片选择数量 int
-                        .minSelectNum(1)// 最小选择数量 int
+                        .theme(R.style.picture_white_style)//主题样式(不设置为默认样式) 也可参考demo   m   jfde  <e></e>/styles下 例如：R.style.picture.white.style
+                        .maxSelectNum(4)// 最大图片选择数量 int
+                        .minSelectNum(1)// 最 小选择数量 int
                         .imageSpanCount(3)// 每行显示个数 int
                         .selectionMode(PictureConfig.MULTIPLE )// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
                         .previewImage(true)// 是否可预览图片 true or false
@@ -93,8 +140,16 @@ public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,Release
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case PictureConfig.CHOOSE_REQUEST:
+
                     // 图片、视频、音频选择结果回调
                     List<LocalMedia> selectList = PictureSelector.obtainMultipleResult(data);
+                    mediaList = selectList;
+                    //显示图片
+                    viewModel.initImgData(selectList);
+
+                    //上传图片
+                    //OssUpload.getInstance().ASYuploadIMG(selectList.get(0).getPath(),this);
+
                     // 例如 LocalMedia 里面返回三种path
                     // 1.media.getPath(); 为原图path
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
@@ -103,5 +158,33 @@ public class ReleaseActivity extends BaseActivity<ActivityReleaseBinding,Release
                     break;
             }
         }
+    }
+
+
+    private  void initbund(Bundle bundle)
+    {
+        IsFlage = bundle.getInt(Contract.EditFlage);
+        if(IsFlage == 1)//表示编辑通知
+        {
+            title = bundle.getString(Contract.TITLE);
+            content = bundle.getString(Contract.CONTENT);
+            UrlImg = bundle.getString(Contract.IMG);
+
+            viewModel.initEdit(title,content,UrlImg);
+        }
+    }
+
+    /**
+     * 图片上传成功之后的回调
+     * @param success 图片的地址
+     */
+    @Override
+    public void success(String success) {
+
+    }
+
+    @Override
+    public void error(String error) {
+
     }
 }

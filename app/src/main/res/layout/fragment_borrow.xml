@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:Binding="http://schemas.android.com/tools">
 
     <data>
 
@@ -25,6 +26,7 @@
             
             
             <RelativeLayout
+                android:id="@+id/re1"
                 android:layout_toLeftOf="@+id/borrow_search_layout"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
@@ -43,14 +45,16 @@
 
 
                 <EditText
+                    android:id="@+id/ev_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="36dp"
                     android:background="@null"
                     android:hint="@string/please_input_name_or_number"
                     android:textSize="12sp"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
                     android:textColor="@color/color_333333"/>
-
 
             </RelativeLayout>
 
@@ -63,43 +67,62 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="12dp">
-
-
                 <TextView
                     android:layout_width="56dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/icon_search_et_bg"
                     android:gravity="center"
                     android:textColor="@color/color_5298fc"
+                    binding:onClickCommand="@{viewModel.search}"
                     android:text="@string/search"/>
+                <RelativeLayout
+                    android:id="@+id/borrow_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@mipmap/icon_register"
+                        android:layout_marginLeft="66dp"
+                        binding:onClickCommand="@{viewModel.borrowrl}"
+                        android:scaleType="fitXY"
+                        android:layout_centerVertical="true"/>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@mipmap/icon_register"
-                    android:layout_marginLeft="66dp"
-                    android:scaleType="fitXY"
-                    android:layout_centerVertical="true"/>
 
+                    <TextView
+                        style="@style/lay_loss_text_style"
+                        binding:onClickCommand="@{viewModel.borrowrl}"
+                        android:text="@string/borrow_register"
+                        android:layout_marginLeft="96dp"/>
 
-                <TextView
-                    style="@style/lay_loss_text_style"
-                    android:text="@string/borrow_register"
-                    android:layout_marginLeft="96dp"/>
+                </RelativeLayout>
+
 
 
             </RelativeLayout>
-            
+
         </RelativeLayout>
 
 
-        <android.support.v7.widget.RecyclerView
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshlayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            binding:itemBinding="@{viewModel.itemBinding}"
-            binding:adapter="@{viewModel.adapter}"
-            binding:items="@{viewModel.observableList}"/>
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                binding:adapter="@{viewModel.adapter}"
+                />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
 
     </LinearLayout>
